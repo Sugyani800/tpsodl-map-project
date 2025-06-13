@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Electricity Bill Map</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      crossorigin=""
+    />
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/map.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+
+    <style>
+      #map {
+        height: 100vh;
+        width: 100%;
+      } /* Ensure map div has height */
+      .info {
+        padding: 6px 8px;
+        font: 14px/16px Arial, Helvetica, sans-serif;
+        background: white;
+        background: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        /* margin-bottom: 10px; removed as it was affecting overall control position */
+      }
+      .info h4 {
+        margin: 0 0 5px;
+        color: #777;
+      }
+      .map-control-button {
+        display: block; /* Make buttons stack vertically */
+        width: 100%; /* Make buttons full width of control */
+        padding: 8px 10px;
+        margin-bottom: 5px; /* Space between buttons */
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+      }
+      .map-control-button:hover {
+        background-color: #0056b3;
+      }
+      #current-level-display {
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+      /* Add styling for the Leaflet Layers Control if it's not visible/styled */
+      .leaflet-control-layers {
+        margin-top: 10px; /* Add some space below custom control */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      crossorigin=""
+    ></script>
+
+    <script>
+      // These variables are injected from Flask
+      var circles_data = {{ circles_data | safe }};
+      var divisions_data = {{ divisions_data | safe }};
+      var subdivisions_data = {{ subdivisions_data | safe }};
+      var sections_data = {{ sections_data | safe }};
+
+      document.addEventListener('DOMContentLoaded', function() {
+          console.log("DOM Content Loaded. Calling initializeMap...");
+          initializeMap(circles_data, divisions_data, subdivisions_data, sections_data);
+      });
+    </script>
+
+    <script src="{{ url_for('static', filename='js/map.js') }}"></script>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+/* static/css/map.css */
+
+#map {
+  height: 100vh;
+  width: 100%;
+}
+
+/* Styles for the custom level control (buttons) */
+.info.level-control {
+  /* Specific class for the control box */
+  background: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  z-index: 1000; /* Ensure it's above the map */
+  position: relative; /* Needed for z-index to work reliably */
+}
+
+.map-control-button {
+  display: block;
+  width: 100%;
+  padding: 8px 12px;
+  margin-bottom: 5px;
+  background-color: #007bff; /* Primary blue */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.map-control-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: translateY(-1px); /* Slight lift effect */
+}
+
+.map-control-button:active {
+  background-color: #004085; /* Even darker on click */
+  transform: translateY(0);
+}
+
+.map-control-button:last-child {
+  margin-bottom: 0;
+}
+
+/* Style for the current level display */
+#current-level-display {
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Style for the back button, distinct color */
+#backButton {
+  background-color: #6c757d; /* Gray color */
+  margin-top: 10px; /* Space above back button */
+}
+
+#backButton:hover {
+  background-color: #5a6268;
+}

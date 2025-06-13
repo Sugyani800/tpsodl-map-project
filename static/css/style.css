@@ -1,0 +1,163 @@
+/* static/css/style.css */
+
+/* Base HTML and Body styling */
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevent unwanted scrollbars */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* A more modern font */
+}
+
+/* NEW: Styles for the background image container */
+#background-image-container {
+  position: absolute; /* Position absolutely to cover the entire viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/tpsodl-new-logo.jpg"); /* Path to your logo */
+  background-size: cover; /* Ensures the image covers the entire container, cropping if necessary */
+  background-repeat: no-repeat; /* Prevents repeating */
+  background-position: center center; /* Centers the image */
+  filter: blur(8px) brightness(0.8); /* Increased blur and slightly darkened for better contrast with text */
+  opacity: 0.9; /* Slightly increased opacity for a more prominent blurred background */
+  z-index: -1; /* Place this background element behind all other content */
+}
+
+/* Container for welcome content on index.html, ensures it's centered and above background */
+.full-height-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Make it take at least the full viewport height */
+  text-align: center;
+  position: relative; /* Create a new stacking context for its children */
+  z-index: 1; /* Place this container above the background-image-container */
+}
+
+/* Styling for the white box containing "Welcome..." text and button */
+.welcome-container {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.95
+  ); /* Slightly less transparent white for better text contrast */
+  padding: 40px 50px; /* More padding for a spacious look */
+  border-radius: 12px; /* Slightly more rounded corners */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Stronger, softer shadow for depth */
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  max-width: 600px; /* Limit width for better readability on large screens */
+  margin: 20px; /* Ensure some margin from viewport edges */
+}
+
+/* Ensure text is clearly visible and not blurred */
+.welcome-container h1 {
+  color: #2c3e50; /* Darker, professional blue-grey for heading */
+  font-size: 2.5em; /* Larger heading */
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05); /* Subtle text shadow for pop */
+}
+
+.welcome-container p {
+  color: #555; /* Medium grey for paragraph text */
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-bottom: 30px; /* More space before the button */
+}
+
+/* Button styling */
+.button {
+  display: inline-block;
+  padding: 12px 30px; /* Larger padding for a more prominent button */
+  background-color: #007bff; /* Vibrant blue */
+  color: white; /* White text */
+  text-decoration: none; /* Remove underline */
+  border-radius: 6px; /* Slightly rounded corners */
+  border: none;
+  cursor: pointer;
+  font-size: 1.1em; /* Slightly larger font */
+  font-weight: bold;
+  letter-spacing: 0.5px; /* Slight letter spacing for style */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effects */
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3); /* Subtle shadow matching button color */
+}
+.button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: translateY(-2px); /* Slight lift effect on hover */
+  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
+}
+
+/* --- Map specific styles (from your previous style.css) --- */
+/* These styles assume map.html also has a #background-image-container */
+
+#map {
+  position: absolute; /* Position map to fill its container */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Map above background-image-container but below controls */
+  background-color: transparent; /* Allows blurred background to show through map */
+}
+
+/* Ensure all Leaflet map elements and your custom controls are fully visible and not blurred */
+.leaflet-container,
+.leaflet-control-container,
+.info, /* Your custom control box */
+#current-level-display,
+.map-control-button,
+.leaflet-control-layers-base,
+.leaflet-control-layers-overlays {
+  opacity: 1 !important; /* Forces full opacity, overriding any inherited body opacity */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.9
+  ) !important; /* Slightly more opaque white background for controls */
+  z-index: 1000 !important; /* Ensure these are on top of everything */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for controls */
+}
+
+/* Existing styles for the info box */
+.info {
+  padding: 10px 12px; /* Slightly more padding */
+  font: 14px/18px Arial, Helvetica, sans-serif; /* Adjusted line height */
+  border-radius: 5px;
+}
+.info h4 {
+  margin: 0 0 8px; /* More margin below heading */
+  color: #444; /* Darker color for info box heading */
+}
+
+/* Existing styles for map control buttons */
+.map-control-button {
+  display: block;
+  width: 100%;
+  padding: 10px 12px; /* Slightly more padding */
+  margin-bottom: 8px; /* More margin between buttons */
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 15px; /* Slightly larger font */
+  transition: background-color 0.3s ease;
+}
+.map-control-button:hover {
+  background-color: #0056b3;
+}
+#current-level-display {
+  font-weight: bold;
+  margin-bottom: 10px; /* More margin below level display */
+  color: #333; /* Darker color */
+}
+.leaflet-control-layers {
+  margin-top: 15px; /* More margin above layer control */
+}

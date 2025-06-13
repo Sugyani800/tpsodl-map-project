@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TPSODL Electricity Coverage Viewer</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <div id="background-image-container"></div>
+
+    <div class="full-height-container">
+      <div class="welcome-container">
+        <h1>Welcome to TPSODL Electricity Coverage Viewer</h1>
+        <p>
+          Click the button below to view the map and understand areas without
+          electricity.
+        </p>
+        <a href="{{ url_for('map_page') }}" class="button">View Map</a>
+      </div>
+    </div>
+  </body>
+</html>
