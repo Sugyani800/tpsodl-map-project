@@ -18,7 +18,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("../images/tpsodl-new-logo.jpg"); /* Path to your logo */
+  background-image: url("../images/TPSODL-new-logo.jpg"); /* Path to your logo */
   background-size: cover; /* Ensures the image covers the entire container, cropping if necessary */
   background-repeat: no-repeat; /* Prevents repeating */
   background-position: center center; /* Centers the image */
